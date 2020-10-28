@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :transactions
   resources :accounts
-  devise_for :users
+  #specifies the registrations controller
+  devise_for :users, :controllers => {:registrations => "registrations"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
