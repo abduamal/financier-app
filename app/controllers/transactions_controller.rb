@@ -3,12 +3,11 @@ class TransactionsController < ApplicationController
     def index
         #get all the transactions tied to a specific account
         @transactions = @account.transactions
-        # render :'/account_transactions'
     end
 
     def show
         set_transaction
-        # render :'/account_transaction'
+        render :'transactions/show'
     end
 
     def new
@@ -30,7 +29,7 @@ class TransactionsController < ApplicationController
     def edit
         set_transaction
     end
-    
+
     def update
         set_transaction
         @transaction.update(transaction_params)
