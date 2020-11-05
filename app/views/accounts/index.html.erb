@@ -1,0 +1,16 @@
+<% if @accounts.blank? %>
+<p>There are currently no accounts in the system.</p>
+<% else %>
+<p>These are your accounts!</p>
+
+<ul id = "accounts">
+   <% @accounts.each do |a| %>
+    <li>
+        <%= link_to a.account_number, {:action => 'show', :id => a.id} -%>
+        <b> <%= link_to 'Edit', {:action => "edit", :id => a.id} %></b>
+    </li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add a new account", {:action => 'new' }%></p>

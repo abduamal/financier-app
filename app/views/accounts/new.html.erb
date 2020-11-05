@@ -1,0 +1,14 @@
+<h1>Add a new account!</h1>
+<br />
+
+  <%= form_for @account do |f| %>
+
+    <p>First and Last Name: <%= f.text_field 'name' %></p>
+    <p>Credit Limit: <%= f.text_field  'credit_limit' %></p>
+    <p>Balance: <%= f.text_field  'balance' %></p>
+    <p>Account Number: <%= f.text_field  'account_number' %></p>
+    <p>Description:<br/>
+    
+    <%= f.text_area 'description' %></p>
+    <%= f.submit %>
+    <% end %>

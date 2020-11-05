@@ -1,0 +1,15 @@
+<h1><%= @account.name %></h1>
+
+<p>
+   <strong>Account Number :</strong> <%= @account.account_number %><br />
+   <strong>Balance :</strong> <%= @account.balance %><br />
+   <strong>Credit Limit :</strong> <%= @account.credit_limit %><br />
+   <strong>Status :</strong> <%= @account.status %><br />
+   <strong>Active Since Date:</strong> <%= @account.created_at %><br />
+</p>
+
+<p><%= @account.description %></p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'index'} %>
