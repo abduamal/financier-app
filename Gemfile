@@ -22,6 +22,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 #For authentication
 gem 'devise'
+#For Omniauth strategy, use Omniauth Github plugin
+gem 'omniauth'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+#To fascilitate database sessions
+gem 'activerecord-session_store', '~> 1.0'
+#To generate seed data
+gem 'faker'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -45,6 +53,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #Use Dotenv for environment variables, to protect the third party application information
+  gem 'dotenv', '~> 2.2.1'
 end
 
 group :test do
