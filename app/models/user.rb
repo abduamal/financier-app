@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_many :payments, through: :accounts
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :lockable, :timeoutable, :trackable, :omniauthable
+
 end
