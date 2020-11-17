@@ -1,0 +1,18 @@
+# create a new transaction
+<h1>Add a new transaction!</h1>
+<br />
+
+<%= form_for @transaction do |f| %>
+
+    <p>Category: <%= f.text_field 'category' %></p>
+    <p>$ Amount: <%= f.text_field  'amount' %></p>
+    <p>Date: <%= f.select_date() 'date'%></p>
+    <p>Description:<br/>
+    
+    <%= f.text_area 'description' %></p>
+    <%= f.submit %>
+<% end %>
+
+<% if flash[:transaction_balance_error] %>
+    [DECLINED]
+<% end %>

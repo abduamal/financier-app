@@ -1,0 +1,14 @@
+# show a transaction - plus owe or paid label
+# SG - link to payment?
+
+<h1><%= @transaction.date %></h1>
+
+<p>
+   <strong>Transaction Amount :</strong> <%= @transaction.amount %><br />
+   <strong>Category :</strong> <%= @transaction.category %><br />
+
+<p><%= @transaction.description %></p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'index'} %>

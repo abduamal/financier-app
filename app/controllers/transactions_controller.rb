@@ -17,10 +17,11 @@ class TransactionsController < ApplicationController
     def create
         @transaction = Transaction.new(transaction_params)
         @transaction.account = Account.find_or_create_by(account_params)
-
-        if @transaction.save
+        if @account.update_balance(@transaction) != 'You have reached your credit limit...'
+            @transaction.save
             redirect_to @transaction
         else
+            flash[:transaction_balance_error] = @transaction.errors.full_messages 
             render :new
         end
          
