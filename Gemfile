@@ -29,6 +29,7 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'activerecord-session_store', '~> 1.0'
 #To generate seed data
 gem 'faker'
+gem 'i18n'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -262,6 +262,7 @@ DEPENDENCIES
   devise
   dotenv (~> 2.2.1)
   faker
+  i18n
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)
