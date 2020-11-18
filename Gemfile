@@ -30,6 +30,8 @@ gem 'activerecord-session_store', '~> 1.0'
 #To generate seed data
 gem 'faker'
 gem 'i18n'
+#To use bootstrap forms
+gem 'bootstrap_form'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

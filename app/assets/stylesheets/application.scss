@@ -20,3 +20,9 @@
 
 // Partials - main css files
 @import "partials/layout/*";
+
+// Default styles
+@import "base/default";
+
+// Media queries for a responsive design
+@import "responsive/*";
