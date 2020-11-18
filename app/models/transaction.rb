@@ -8,4 +8,10 @@ class Transaction < ApplicationRecord
     transportation
     food
   ), message: "Must be one of the following categories: Entertainment, Household, Apparel, Utilities, Transportation, Food"}
+
+  scope :not_necessity, -> {where("category = entertainment")}
+
+  def self.expensive_purchase
+    order('amount desc').first
+  end
 end

@@ -1,7 +1,7 @@
 <h1>Add a new account!</h1>
 <br />
 
-  <%= form_for @account do |f| %>
+<%= form_for @account do |f| %>
 
     <p>Name: <%= f.text_field 'name' %></p>
     <p>Credit Limit: <%= f.text_field  'credit_limit' %></p>
@@ -11,4 +11,6 @@
     
     <%= f.text_area 'description' %></p>
     <%= f.submit %>
-    <% end %>
+<% end %>
+
+<%= @account.errors.full_messages.first if @account.errors.any? %>

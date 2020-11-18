@@ -3,9 +3,9 @@
 <%= form_for @account, :url =>{:action => "update", :id =>@account} do |f| %>
 
 <p>Name: <%= f.text_field 'name' %></p>
-<p>Credit_Limit: <%= f.text_field  'credit limit' %></p>
-<p>Account_Balance: <%= f.text_field  'account balance' %></p>
-<p>Account_Number: <%= f.text_field  'account number' %></p>
+<p>Credit_Limit: <%= f.text_field  'credit_limit' %></p>
+<p>Balance: <%= f.text_field  'balance' %></p>
+<p>Account_Number: <%= f.text_field  'account_number' %></p>
 <p>Description<br/>
 
 <%= f.text_area 'description' %></p>

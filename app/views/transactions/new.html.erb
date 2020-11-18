@@ -6,13 +6,16 @@
 
     <p>Category: <%= f.text_field 'category' %></p>
     <p>$ Amount: <%= f.text_field  'amount' %></p>
-    <p>Date: <%= f.select_date() 'date'%></p>
     <p>Description:<br/>
     
     <%= f.text_area 'description' %></p>
     <%= f.submit %>
 <% end %>
 
-<% if flash[:transaction_balance_error] %>
-    [DECLINED]
+<% if flash[:messages] %>
+    <% flash[:messages].each do |message| %>
+      <h2><%= message%></h2> <br>
+    <% end %>
+<% elsif flash[:transaction_balance_error] %>
+    <p><strong>DECLINED :</strong> %><br /></p>
 <% end %>

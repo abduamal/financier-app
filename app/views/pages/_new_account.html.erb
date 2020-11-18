@@ -1,0 +1,7 @@
+<% if @accounts.blank? %>
+    <p>You Do Not Have Accounts Yet!</p>
+    <p><%= link_to "Add a new account", new_account_path%></p>
+<% else %>
+    <p>These are your accounts!</p>
+    <%= link_to 'Account(s)', accounts_path %>
+<% end %>

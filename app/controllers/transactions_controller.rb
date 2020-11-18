@@ -17,11 +17,11 @@ class TransactionsController < ApplicationController
     def create
         @transaction = Transaction.new(transaction_params)
         @transaction.account = Account.find_or_create_by(account_params)
-        if @account.update_balance(@transaction) != 'You have reached your credit limit...'
+        if (@account.update_balance(@transaction) != 'You have reached your credit limit...') && @employee.valid?
             @transaction.save
             redirect_to @transaction
         else
-            flash[:transaction_balance_error] = @transaction.errors.full_messages 
+            flash.now[:messages] = @transaction.errors.full_messages[0]
             render :new
         end
          
@@ -49,7 +49,7 @@ class TransactionsController < ApplicationController
     private
 
     def set_account
-        @account = Account.find(params[:account_id])
+        @account = Account.find_or_create_by(params[:id])
     end
 
     def set_transaction

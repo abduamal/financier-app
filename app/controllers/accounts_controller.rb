@@ -15,9 +15,11 @@ class AccountsController < ApplicationController
     def create
         @account = Account.new(account_params)
 
-        if @account.save
-            redirect_to @account
+        if @account.valid?
+            @account.save
+            redirect_to account_path(@account)
         else
+            flash.now[:messages] = @account.errors.full_messages[0]
             render :new
         end
     end
@@ -51,6 +53,6 @@ class AccountsController < ApplicationController
     end
 
     def set_account
-        @account = Account.find(params[:account_id])
+        @account = Account.find(params[:id])
     end
 end

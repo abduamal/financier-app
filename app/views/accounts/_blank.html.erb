@@ -1,0 +1,7 @@
+<% if @accounts.blank? %>
+    <p>There are currently no accounts in the system.</p>
+    <p><%= link_to "Add a new account", {:action => 'new' }%></p>
+<% else %>
+    <p>These are your accounts!</p>
+    <p><%= link_to "View Accounts", {:action => 'index' }%></p>
+<% end %>
