@@ -2,9 +2,15 @@
 <h1>Add a new transaction!</h1>
 <br />
 
-<%= form_for @transaction do |f| %>
-
-    <p>Category: <%= f.text_field 'category' %></p>
+<%= form_with(model: [@account, @transaction], local: true) do |f| %>
+    <p>Category:<%= f.select :category, [
+    "Entertainment",
+    "Household",
+    "Apparel",
+    "Utilities",
+    "Transportation",
+    "Food"
+    ] %></p>
     <p>$ Amount: <%= f.text_field  'amount' %></p>
     <p>Description:<br/>
     
@@ -12,10 +18,6 @@
     <%= f.submit %>
 <% end %>
 
-<% if flash[:messages] %>
-    <% flash[:messages].each do |message| %>
-      <h2><%= message%></h2> <br>
-    <% end %>
-<% elsif flash[:transaction_balance_error] %>
-    <p><strong>DECLINED :</strong> %><br /></p>
+<% if flash[:alert] %>
+      <h2><%= flash[:alert] %></h2> <br>
 <% end %>

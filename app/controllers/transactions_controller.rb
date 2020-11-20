@@ -1,42 +1,40 @@
 class TransactionsController < ApplicationController
     before_action :set_account
+    before_action :set_transaction, only:[:show, :edit, :update, :destroy]
+
     def index
         #get all the transactions tied to a specific account
         @transactions = @account.transactions
     end
 
     def show
-        set_transaction
         render :'transactions/show'
     end
 
     def new
-        @transaction = Transaction.new
+        #create a transaction object associated with a specific account instance from the set_account method
+        @transaction = @account.transactions.build
     end
     
     def create
-        @transaction = Transaction.new(transaction_params)
-        @transaction.account = Account.find_or_create_by(account_params)
-        if (@account.update_balance(@transaction) != 'You have reached your credit limit...') && @employee.valid?
+        @transaction = @account.transactions.build(transaction_params)
+        if @account.update_balance(@transaction) != 'You have reached your credit limit...'
             @transaction.save
-            redirect_to @transaction
+            redirect_to account_transactions_path(@account)
         else
-            flash.now[:messages] = @transaction.errors.full_messages[0]
+            flash.now[:alert] = "Your entry was invalid."
             render :new
         end
-         
     end
 
     def edit
-        set_transaction
     end
 
     def update
-        set_transaction
         @transaction.update(transaction_params)
 
         if @transaction.save
-            redirect_to @transaction
+            redirect_to account_transactions_path(@account)
         else
             render :edit
         end
@@ -44,16 +42,18 @@ class TransactionsController < ApplicationController
 
     def destroy
         # can't just delete a transaction you made?
+        # @transaction.destroy
+        # redirect_to account.transactions_path(@account)
     end
 
     private
 
     def set_account
-        @account = Account.find_or_create_by(params[:id])
+        @account = Account.find(params[:account_id])
     end
 
     def set_transaction
-        @transaction = Transaction.find(params[:id])
+        @transaction = @account.transactions.find(params[:id])
     end
 
     def transaction_params

@@ -4,10 +4,11 @@
     <li>
         <%= link_to a.account_number, {:action => 'show', :id => a.id} -%>
         <b> <%= link_to 'Edit', {:action => "edit", :id => a.id} %></b>
+        <b> <%= link_to "Add a new transaction", new_account_transaction_path(a) %>
     </li>
    <% end %>
 </ul>
 
 <p><%= link_to "Add a new account", {:action => 'new' }%></p>
 <br />
-<p><%= link_to "Add a new transaction", "/accounts/:account_id/transactions/new" %></p>
+
