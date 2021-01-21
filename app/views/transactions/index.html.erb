@@ -9,8 +9,8 @@
 <ul id = "transactions">
    <% @transactions.each do |t| %>
     <li>
-        <%= link_to t.date, {:action => 'show', :id => t.id} -%>
-        <b> <%= link_to 'Edit', {:action => "edit", :id => a.id} %></b>
+        <%= link_to t.amount, {:action => 'show', :id => t.id} -%>
+        <b> <%= link_to 'Edit', {:action => "edit", :id => t.id} %></b>
     </li>
    <% end %>
 </ul>

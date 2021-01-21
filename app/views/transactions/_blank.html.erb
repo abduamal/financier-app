@@ -1,0 +1,7 @@
+<% if @transactions.blank? %>
+    <p>There are currently no transactions in the system.</p>
+    <p><%= link_to "Add a new transaction", {:action => 'new' }%></p>
+<% else %>
+    <p>These are your transactions!</p>
+    <p><%= link_to "View transactions", {:action => 'index' }%></p>
+<% end %>
